@@ -17,7 +17,7 @@ st.set_page_config(
 # --- Core Logic ---
 def analyze_message(text, api_key):
     """
-    Analyzes the message using Gemini Pro to detect manipulation techniques.
+    Analyzes the message using Gemini Pro to assess manipulation techniques.
     """
     if not api_key:
         raise ValueError("API Key is missing.")
@@ -34,11 +34,13 @@ Analyze the following message for psychological and social engineering manipulat
 Do not assume malicious intent.
 Do not claim certainty.
 
-Return a JSON object with:
+Return ONLY a valid JSON object with exactly the following keys:
 - risk_level: Low / Medium / High
 - manipulation_techniques: list
 - explanation: simple explanation for a non-technical user
 - user_guidance: safe actions the user can take
+
+Do not include any text outside the JSON.
 
 Message:
 {user_message}
@@ -103,7 +105,7 @@ def main():
     
     user_input = st.text_area("Paste the message you received here:", height=150)
     
-    if st.button("Analyze Message"):
+    if st.button("Analyze Message for Risk Indicators"):
         if not user_input.strip():
             st.warning("Please enter a message to analyze.")
         else:
