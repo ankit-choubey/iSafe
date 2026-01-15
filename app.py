@@ -95,13 +95,12 @@ Message:
 def main():
     st.title("iSafe – Scam Explanation Assistant (Proof of Concept)")
     
-    # Sidebar for API Key (or env var)
+    # Sidebar for API Key (Removed for PoC - Pre-configured)
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        api_key = st.sidebar.text_input("Enter Gemini API Key", type="password")
-        if not api_key:
-             st.info("Please enter your Gemini API Key in the sidebar or set it in .env to proceed.")
-             st.stop()
+        # If no key found, we will rely on the Fallback Demo Mode inside analyze_message
+        # or show a warning only if the user tries to analyze
+        pass
     
     user_input = st.text_area("Paste the message you received here:", height=150)
     

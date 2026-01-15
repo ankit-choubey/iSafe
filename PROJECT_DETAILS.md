@@ -1,12 +1,15 @@
-# iSafe - Scam Explanation Assistant using Google Gemini Pro
+# iSafe - Scam Explanation Assistant
 
-iSafe is a tool built in Python using Streamlit that aims to identify potential manipulation attempts in messages. It uses the advanced reasoning capabilities of Google's Gemini Pro AI to evaluate the contents of a message and determine if it exhibits psychological patterns common in scams.
+iSafe is a tool built in Python using Streamlit that aims to identify potential manipulation attempts in SMS and text messages. It uses advanced AI language evaluation to evaluate the contents of a message and determine if it exhibits psychological patterns common in scams.
 
 The tool uses a holistic approach to analyze messages:
 
-1.  **AI Analysis**: The tool uses the Gemini Pro API from Google to analyze the overall text (and any included links contextually). Gemini acts as a "Cyber Safety Analyst," identifying manipulation techniques like urgency, authority bias, and fear-mongering.
+1.  **AI Analysis**: The tool uses a large language model to analyze the overall text (and any included links contextually). The AI acts as a "Cyber Safety Analyst," identifying manipulation techniques like urgency, authority bias, and fear-mongering.
+2.  **Risk Assessment**: It assigns a risk level and explains *why* the message is dangerous.
 
-By using this method, iSafe can provide a detailed explanation of *why* a message might be unsafe. This helps users avoid falling for scams by educating them on the underlying psychological tricks. The tool is intended as a practical demonstration of how GenAI can be used to improve digital literacy.
+By using this method, iSafe can provide a detailed explanation of the psychological tricks being used. This helps users avoid falling for scams by educating them on the underlying patterns. The tool is intended as a practical demonstration of how AI can be used to improve digital literacy.
+
+![Analysis Example](assets/demo_image.png)
 
 # Usage
 
@@ -21,8 +24,8 @@ To use iSafe:
 
 # Implementation Details
 
-## Gemini Pro API Integration
-Using the `google-generativeai` Python module, iSafe connects and interacts with the Gemini Pro model. The function generates a strict system prompt that instructs the AI to act as a safety analyst.
+## AI Integration
+Using Python, iSafe connects and interacts with an advanced AI model. The function generates a strict system prompt that instructs the AI to act as a safety analyst.
 
 ## Risk Assessment Function
 iSafe uses the model to provide a human-like assessment. Instead of a simple "Safe/Unsafe" binary, it returns:
@@ -46,25 +49,21 @@ iSafe requires the following Python libraries:
 *   `google-generativeai`
 *   `python-dotenv`
 
-iSafe requires the following API keys:
-*   **Google Gemini API key**: [Get it from Google AI Studio](https://aistudio.google.com/)
-
 # Limitations and Risks
 
-*   **Advisory Only**: The accuracy of the solution depends on the effectiveness of the Gemini model. It does not replace human judgment.
-*   **API Quotas**: Overuse may result in hitting rate limits (specifically the 429 Quota Exceeded error on free tiers).
+*   **Advisory Only**: The accuracy of the solution depends on the effectiveness of the AI model. It does not replace human judgment.
+*   **Privacy**: While the app does not store data, users should avoid pasting highly sensitive PII (Personally Identifiable Information).
 *   **False Positives**: The model can potentially output false positives or negatives.
-*   **Privacy**: While the app does not store data, users should avoid pasting highly sensitive PII (Personally Identifiable Information) into *any* online tool.
 
 # Pseudocode
 
 ```text
 START
 
-IMPORT streamlit, google.generativeai
+IMPORT streamlit, android_genai_wrapper
 
 FUNCTION analyze_message(text):
-    CONFIGURE Gemini API
+    CONFIGURE AI API
     SET System Prompt ("Act as Cyber Safety Analyst...")
     PASS text to Model
     GET JSON response (Risk, Techniques, Explanation)
