@@ -156,6 +156,9 @@ Users retain full control over their decisions.
         try:
             with open("PROJECT_DETAILS.md", "r") as f:
                 st.markdown(f.read())
+            # Render the image explicitly since Markdown relative links can be flaky in Streamlit
+            if os.path.exists("assets/demo_image.png"):
+                st.image("assets/demo_image.png", caption="Analysis Example")
         except FileNotFoundError:
             st.warning("Project details file not found.")
 

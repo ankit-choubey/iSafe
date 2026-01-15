@@ -9,8 +9,6 @@ The tool uses a holistic approach to analyze messages:
 
 By using this method, iSafe can provide a detailed explanation of the psychological tricks being used. This helps users avoid falling for scams by educating them on the underlying patterns. The tool is intended as a practical demonstration of how AI can be used to improve digital literacy.
 
-![Analysis Example](assets/demo_image.png)
-
 # Usage
 
 ## Web Interface
