@@ -152,5 +152,13 @@ No user data is stored or logged.
 Users retain full control over their decisions.
 """)
 
+    st.markdown("---")
+    with st.expander("ℹ️ How it Works & Project Details"):
+        try:
+            with open("PROJECT_DETAILS.md", "r") as f:
+                st.markdown(f.read())
+        except FileNotFoundError:
+            st.warning("Project details file not found.")
+
 if __name__ == "__main__":
     main()
