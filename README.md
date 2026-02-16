@@ -1,4 +1,4 @@
-# 🛡️ iSafe: Cognitive Security \& Anti-Fraud AI
+# iSafe: Cognitive Security \& Anti-Fraud AI
 
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)]()
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)]()
